@@ -141,6 +141,25 @@ footer .fl{margin-top:24px;padding-top:16px;border-top:1px solid #243a2e;font-si
 .bnl .row{grid-column:1/-1}
 .bnl h3{font-size:16px;word-break:break-word}
 .bnl small{color:var(--m);word-break:break-all}
+/* ---------- AVIS ---------- */
+.stars{display:inline-flex;gap:2px;vertical-align:middle}
+.stars svg,.pick svg{fill:#D5DBD7}
+.stars svg{width:16px;height:16px}
+.stars .f,.pick .f{fill:#F2B705}
+.tag.rt{background:#FFF4CC;color:#6b5000}
+.rsum{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;margin-bottom:16px}
+.rbig{font:800 48px/1 var(--fd);margin-bottom:6px}
+.rbars{display:grid;gap:5px}
+.rbar{display:grid;grid-template-columns:12px 1fr;gap:8px;align-items:center;font-size:12px;color:var(--m)}
+.rbar i{display:block;height:8px;border-radius:99px;background:var(--b);overflow:hidden}
+.rbar b{display:block;height:100%;background:var(--g);border-radius:99px}
+.rv{display:grid;grid-template-columns:40px 1fr;gap:2px 12px;padding:14px 0;border-top:1px solid var(--b)}
+.rv .av{grid-row:1/4;width:40px;height:40px;border-radius:50%;background:var(--gl);color:var(--g);display:grid;place-items:center;font:700 16px var(--fd)}
+.rv p{white-space:pre-line;word-break:break-word}
+.rv small{color:var(--m)}
+.pick{display:flex;gap:2px;margin-left:-6px}
+.pick button{width:46px;height:46px;border:0;background:none;padding:0;cursor:pointer;display:grid;place-items:center}
+.pick svg{width:34px;height:34px}
 /* ---------- REFONTE MOBILE (style liste de boutique d'applis) ---------- */
 :root{--f:'Instrument Sans',system-ui,sans-serif;--fd:'Bricolage Grotesque',system-ui,sans-serif}
 body{font-family:var(--f);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
@@ -178,7 +197,8 @@ h1,h2,h3{font-family:var(--fd);font-weight:700}
  .card.ap .row{gap:6px;margin-top:2px}
  .card.ap .tag{background:transparent;padding:0;font-size:13px;font-weight:500;color:var(--m)}
  .card.ap .tag.m{background:#FFF4CC;color:#6b5000;padding:1px 8px;font-weight:600}
- .card.ap .tag:nth-child(n+3){display:none}
+ .card.ap .tag:nth-child(n+4){display:none}
+ .card.ap .tag.rt{background:transparent;color:var(--t);font-weight:600}
  .card.ap>.btn{display:none}
  .cat{border-radius:16px}
  footer{margin-top:24px}
@@ -272,13 +292,13 @@ h1,h2,h3{font-family:var(--fd);font-weight:700}
 
 <div id="bn" role="navigation" aria-label="Navigation principale">
   <a href="#/" data-r="home"><span class="pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span>Accueil</a>
+  <a href="#/categorie/jeux" data-r="jeux"><span class="pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="6"/><path d="M7 10v4M5 12h4"/><circle cx="15.5" cy="13" r=".6"/><circle cx="18" cy="11" r=".6"/></svg></span>Jeux</a>
   <a href="#/applications" data-r="applications"><span class="pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></svg></span>Applis</a>
   <a href="#/applications?focus=1" data-r="recherche"><span class="pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></span>Recherche</a>
-  <a href="#/startups" data-r="startups"><span class="pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span>Startups</a>
   <button type="button" id="bm" aria-haspopup="dialog" aria-expanded="false"><span class="pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span>Plus</button>
 </div>
 <div id="more" hidden><div class="bk"></div><div class="sheet" role="dialog" aria-label="Plus d’options"><span class="grab"></span>
-  <a href="#/innovations">Innovations</a><a href="#/mali">🇲🇱 Made in Mali</a><a href="#/developpeurs">Espace développeurs</a><a href="#/soumettre">Soumettre une application</a><a href="#/a-propos">À propos</a><a href="#/contact">Contact</a>
+  <a href="#/startups">Startups</a><a href="#/innovations">Innovations</a><a href="#/mali">🇲🇱 Made in Mali</a><a href="#/developpeurs">Espace développeurs</a><a href="#/soumettre">Soumettre une application</a><a href="#/a-propos">À propos</a><a href="#/contact">Contact</a>
   <button type="button" class="btn y ins">Installer TechMali</button></div></div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
@@ -291,17 +311,23 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const safeUrl=u=>/^https:\/\//i.test(u||'')?esc(u):'';
 const slug=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 const app=$('#app');
-let CATS=[],APPS=[],BANNERS=[],loaded=false;
+let CATS=[],APPS=[],BANNERS=[],loaded=false;const RAT={};
+const fmt=n=>String(n).replace('.',',');
+const STAR='<path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.5l1.2-6.5L2.5 9.4l6.6-.9z"/>';
+const starsOf=r=>`<span class="stars" role="img" aria-label="${fmt(r)} sur 5">${[1,2,3,4,5].map(i=>`<svg viewBox="0 0 24 24" class="${i<=Math.round(r)?'f':''}" aria-hidden="true">${STAR}</svg>`).join('')}</span>`;
+const devId=()=>{let d=null;try{d=localStorage.getItem('tm_dev');if(!d){d=crypto.randomUUID();localStorage.setItem('tm_dev',d)}}catch(e){}return d||crypto.randomUUID()};
 
 function toast(m){const t=document.createElement('div');t.className='toast';t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),3500)}
 function seo(title,desc){document.title=title+' – TechMali';const m=document.querySelector('meta[name=description]');if(m&&desc)m.content=desc;const o=document.querySelector('meta[property="og:title"]');if(o)o.content=title}
 async function load(){
   if(loaded)return;
-  const [c,a,b]=await Promise.all([
+  const [c,a,b,rt]=await Promise.all([
     sb.from('categories').select('*').order('sort_order'),
     sb.from('apps').select('*').eq('status','published').order('created_at',{ascending:false}).limit(1000),
-    sb.from('banners').select('*').eq('is_active',true).eq('placement','home').order('sort_order').order('created_at',{ascending:false}).limit(8)
+    sb.from('banners').select('*').eq('is_active',true).eq('placement','home').order('sort_order').order('created_at',{ascending:false}).limit(8),
+    sb.from('app_ratings').select('*')
   ]);
+  (rt.data||[]).forEach(x=>RAT[x.app_id]={avg:Number(x.avg_rating),n:x.review_count});
   CATS=c.data||[];APPS=a.data||[];BANNERS=b.data||[];loaded=true;
 }
 const ORIG={MADE_IN_MALI:'Créée au Mali',MALIANS_ABROAD:'Maliens de la diaspora',SERVES_MALI:'Service international',UNKNOWN:'Origine à confirmer'};
@@ -310,7 +336,7 @@ const catName=id=>(CATS.find(c=>c.id===id)||{}).name||'';
 const initial=n=>esc((n||'?').trim().charAt(0).toUpperCase());
 function logo(a){let src=safeUrl(a.logo_url);if(!src&&a.website_url){try{src='https://www.google.com/s2/favicons?sz=128&domain='+encodeURIComponent(new URL(a.website_url).hostname)}catch(e){}}
   return `<div class="ic">${src?`<img src="${src}" alt="" loading="lazy" data-i="${initial(a.name)}" onerror="this.parentNode.textContent=this.dataset.i">`:initial(a.name)}</div>`}
-function appCard(a){return `<a class="card ap" href="#/app/${esc(a.slug)}">${logo(a)}<h3>${esc(a.name)}</h3><p>${esc(a.short_description)}</p><div class="row"><span class="tag">${esc(catName(a.category_id)||'Application')}</span>${a.is_made_in_mali?'<span class="tag m">🇲🇱 Made in Mali</span>':''}${a.origin_type&&a.origin_type!=='MADE_IN_MALI'?`<span class="tag sp">${ORIG[a.origin_type]}</span>`:''}${a.verification_status==='VERIFIED'?'<span class="tag">✔ Vérifiée</span>':''}${a.is_sponsored?'<span class="tag sp">Sponsorisé</span>':''}${a.is_demo?'<span class="tag sp">Démo</span>':''}</div><span class="btn s o" style="margin-top:auto">Découvrir</span></a>`}
+function appCard(a){return `<a class="card ap" href="#/app/${esc(a.slug)}">${logo(a)}<h3>${esc(a.name)}</h3><p>${esc(a.short_description)}</p><div class="row">${RAT[a.id]?`<span class="tag rt">${fmt(RAT[a.id].avg.toFixed(1))} ★</span>`:''}<span class="tag">${esc(catName(a.category_id)||'Application')}</span>${a.is_made_in_mali?'<span class="tag m">🇲🇱 Made in Mali</span>':''}${a.origin_type&&a.origin_type!=='MADE_IN_MALI'?`<span class="tag sp">${ORIG[a.origin_type]}</span>`:''}${a.verification_status==='VERIFIED'?'<span class="tag">✔ Vérifiée</span>':''}${a.is_sponsored?'<span class="tag sp">Sponsorisé</span>':''}${a.is_demo?'<span class="tag sp">Démo</span>':''}</div><span class="btn s o" style="margin-top:auto">Découvrir</span></a>`}
 const gridOf=(list,msg)=>`<div class="grid">${list.length?list.map(appCard).join(''):`<div class="empty">${msg||'Aucune application publiée pour le moment.'}</div>`}</div>`;
 const sectionHead=(t,l,h)=>`<div class="sh"><h2>${t}</h2>${l?`<a class="sa" href="${h}" aria-label="${l}"><span class="tx">${l}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>`:''}</div>`;
 
@@ -400,7 +426,7 @@ async function detail(s){
   seo(a.name,a.short_description);
   sb.rpc('increment_app_view',{p_slug:s});
   const ld=document.createElement('script');ld.type='application/ld+json';
-  ld.textContent=JSON.stringify({'@context':'https://schema.org','@type':'SoftwareApplication',name:a.name,description:a.short_description,applicationCategory:catName(a.category_id),operatingSystem:(a.platforms||[]).join(', ')});
+  ld.textContent=JSON.stringify({'@context':'https://schema.org','@type':'SoftwareApplication',name:a.name,description:a.short_description,applicationCategory:catName(a.category_id),operatingSystem:(a.platforms||[]).join(', '),...(RAT[a.id]?{aggregateRating:{'@type':'AggregateRating',ratingValue:RAT[a.id].avg,reviewCount:RAT[a.id].n}}:{})});
   const old=document.getElementById('ld');if(old)old.remove();ld.id='ld';document.head.appendChild(ld);
   const links=[a.apk_url&&['Télécharger l’APK (hors Play Store)',a.apk_url],a.play_store_url&&['Google Play',a.play_store_url],a.app_store_url&&['App Store',a.app_store_url],a.website_url&&['Site officiel',a.website_url]].filter(Boolean);
   const main=links[0];
@@ -418,10 +444,42 @@ async function detail(s){
   ${links.map(l=>`<tr><th>${l[0]}</th><td><a style="color:var(--g)" href="${safeUrl(l[1])}" target="_blank" rel="noopener noreferrer">${l[0]}</a></td></tr>`).join('')}</table></div>
   ${a.video_url&&safeUrl(a.video_url)?`<a class="btn o" href="${safeUrl(a.video_url)}" target="_blank" rel="noopener noreferrer">Voir la vidéo de présentation</a>`:''}
   ${(a.sources||[]).filter(safeUrl).length?`<details><summary style="cursor:pointer;color:var(--m)">Sources</summary><ul style="padding-left:20px;font-size:14px">${a.sources.filter(safeUrl).map(u=>`<li><a style="color:var(--g);word-break:break-all" href="${safeUrl(u)}" target="_blank" rel="noopener noreferrer">${esc(u)}</a></li>`).join('')}</ul></details>`:''}
+  <section id="rv" aria-live="polite"></section>
   <details><summary style="cursor:pointer;color:var(--m)">Signaler un problème</summary><form class="f" id="rp" style="margin-top:8px"><label>Motif<textarea name="reason" required minlength="5" maxlength="1000"></textarea></label><button class="btn">Envoyer le signalement</button></form></details>
   ${sim.length?`<section>${sectionHead('Applications similaires')}${gridOf(sim)}</section>`:''}</div>`;
+  reviewsBlock(a);
   $('#cp').onclick=()=>navigator.clipboard.writeText(location.href).then(()=>toast('Lien copié'));
   $('#rp').onsubmit=async e=>{e.preventDefault();const {error}=await sb.from('reports').insert({app_id:a.id,reason:e.target.reason.value});toast(error?'Envoi impossible, réessayez.':'Signalement envoyé. Merci.');if(!error)e.target.reset()};
+}
+
+/* ---------- AVIS ---------- */
+async function reviewsBlock(a){
+  const box=$('#rv');if(!box)return;
+  const {data}=await sb.from('reviews').select('id,rating,comment,author_name,created_at').eq('app_id',a.id).eq('status','published').order('created_at',{ascending:false}).limit(200);
+  const L=data||[],n=L.length,avg=n?L.reduce((t,x)=>t+x.rating,0)/n:0;
+  if(n)RAT[a.id]={avg:Math.round(avg*10)/10,n};else delete RAT[a.id];
+  const cnt=[5,4,3,2,1].map(v=>L.filter(x=>x.rating===v).length);
+  let done=null;try{done=localStorage.getItem('tm_rv_'+a.id)}catch(e){}
+  box.innerHTML=`${sectionHead('Avis et notes')}
+  ${n?`<div class="rsum"><div><div class="rbig">${fmt(avg.toFixed(1))}</div>${starsOf(avg)}<div style="font-size:13px;color:var(--m);margin-top:4px">${n} avis</div></div><div class="rbars">${cnt.map((c,i)=>`<div class="rbar"><span>${5-i}</span><i><b style="width:${Math.round(c/n*100)}%"></b></i></div>`).join('')}</div></div>`:'<div class="empty" style="margin-bottom:12px">Pas encore d’avis. Soyez le premier à donner le vôtre.</div>'}
+  ${done?'<p class="note">Merci, votre avis est publié.</p>':`<form class="f" id="rf"><strong>Donnez votre avis</strong>
+    <div class="pick" id="pk" role="radiogroup" aria-label="Votre note">${[1,2,3,4,5].map(i=>`<button type="button" role="radio" aria-checked="false" aria-label="${i} étoile${i>1?'s':''}" data-v="${i}"><svg viewBox="0 0 24 24" aria-hidden="true">${STAR}</svg></button>`).join('')}</div>
+    <label>Votre nom (facultatif)<input name="n" maxlength="40" autocomplete="name"></label>
+    <label>Votre commentaire (facultatif)<textarea name="c" rows="3" maxlength="500"></textarea></label>
+    <input name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+    <button class="btn" id="rs">Publier mon avis</button><div id="rm"></div></form>`}
+  ${L.filter(x=>x.comment).map(x=>`<div class="rv"><div class="av">${initial(x.author_name||'V')}</div><strong>${esc(x.author_name||'Visiteur')}</strong><div>${starsOf(x.rating)} <small>${new Date(x.created_at).toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})}</small></div><p>${esc(x.comment)}</p></div>`).join('')}`;
+  const f=$('#rf');if(!f)return;let sel=0;
+  $('#pk').onclick=e=>{const b=e.target.closest('button');if(!b)return;sel=+b.dataset.v;[...$('#pk').children].forEach((x,i)=>{x.setAttribute('aria-checked',i+1===sel);x.firstChild.classList.toggle('f',i<sel)})};
+  f.onsubmit=async e=>{e.preventDefault();const m=$('#rm');m.innerHTML='';
+    if(!sel){m.innerHTML='<p class="note err">Choisissez une note de 1 à 5 étoiles.</p>';return}
+    if(f.website.value)return;
+    $('#rs').disabled=true;
+    const {error}=await sb.from('reviews').insert({app_id:a.id,rating:sel,comment:f.c.value.trim()||null,author_name:f.n.value.trim()||null,device_id:devId()});
+    if(error&&error.code!=='23505'){$('#rs').disabled=false;m.innerHTML='<p class="note err">Envoi impossible, réessayez dans un instant.</p>';return}
+    try{localStorage.setItem('tm_rv_'+a.id,'1')}catch(x){}
+    if(error)m.innerHTML='<p class="note">Vous avez déjà donné votre avis sur cette application.</p>';
+    else{toast('Merci pour votre avis');reviewsBlock(a)}};
 }
 
 /* ---------- STARTUPS & INNOVATIONS ---------- */
@@ -505,7 +563,7 @@ async function admin(){
   }
   const {data:prof}=await sb.from('profiles').select('role').eq('id',session.user.id).single();
   if(!prof||prof.role!=='admin'){app.innerHTML=`<div class="wrap" style="padding-top:32px"><p class="note err">Ce compte n’a pas les droits d’administration.</p><button class="btn o" id="lo" style="margin-top:12px">Se déconnecter</button></div>`;$('#lo').onclick=async()=>{await sb.auth.signOut();admin()};return}
-  app.innerHTML=`<div class="wrap" style="padding-top:20px"><div class="sh"><h1 style="font-size:26px">Tableau de bord</h1><button class="btn s o" id="lo">Déconnexion</button></div><div class="tabs" id="at"><button class="on" data-k="s">Soumissions</button><button data-k="a">Applications</button><button data-k="r">Signalements</button><button data-k="t">Startups</button><button data-k="i">Innovations</button><button data-k="b">Bannières</button></div><div id="ab"></div></div>`;
+  app.innerHTML=`<div class="wrap" style="padding-top:20px"><div class="sh"><h1 style="font-size:26px">Tableau de bord</h1><button class="btn s o" id="lo">Déconnexion</button></div><div class="tabs" id="at"><button class="on" data-k="s">Soumissions</button><button data-k="a">Applications</button><button data-k="r">Signalements</button><button data-k="t">Startups</button><button data-k="i">Innovations</button><button data-k="b">Bannières</button><button data-k="v">Avis</button></div><div id="ab"></div></div>`;
   $('#lo').onclick=async()=>{await sb.auth.signOut();admin()};
   const tab=async k=>{[...$('#at').children].forEach(x=>x.classList.toggle('on',x.dataset.k===k));const box=$('#ab');box.innerHTML='Chargement…';
     if(k==='s'){const {data}=await sb.from('submissions').select('*').order('created_at',{ascending:false});
@@ -569,6 +627,12 @@ async function admin(){
         if(a==='del'){if(!confirm('Supprimer cette bannière ?'))return;q=await sb.from('banners').delete().eq('id',r.id)}
         done(q&&q.error?q.error.message:'Modifié')};
       return}
+    if(k==='v'){const {data}=await sb.from('reviews').select('id,rating,comment,author_name,status,created_at,apps(name)').order('created_at',{ascending:false}).limit(100);
+      box.innerHTML=(data||[]).map(r=>`<div class="card" style="margin-bottom:10px"><h3>${esc(r.apps&&r.apps.name||'Application')} ${starsOf(r.rating)}</h3><p style="-webkit-line-clamp:unset">${esc(r.comment||'Sans commentaire')}</p><small>${esc(r.author_name||'Visiteur')} · ${new Date(r.created_at).toLocaleDateString('fr-FR')} · ${r.status==='published'?'visible':'masqué'}</small><div class="row"><button class="btn s o" data-a="hide" data-id="${r.id}">${r.status==='published'?'Masquer':'Afficher'}</button><button class="btn s o" data-a="del" data-id="${r.id}">Supprimer</button></div></div>`).join('')||'<div class="empty">Aucun avis.</div>';
+      box.onclick=async e=>{const b=e.target.closest('button[data-a]');if(!b)return;const r=data.find(x=>x.id===b.dataset.id);let q;
+        if(b.dataset.a==='hide')q=await sb.from('reviews').update({status:r.status==='published'?'hidden':'published'}).eq('id',r.id);
+        if(b.dataset.a==='del'){if(!confirm('Supprimer cet avis ?'))return;q=await sb.from('reviews').delete().eq('id',r.id)}
+        loaded=false;toast(q&&q.error?q.error.message:'Modifié');tab('v')};return}
     const CFG={t:{tb:'startups',n:'name',f:[['name','Nom'],['domain','Domaine'],['founder_name','Fondateur (si public)'],['website_url','Site web (https://)'],['description','Présentation']]},
       i:{tb:'innovations',n:'title',f:[['title','Titre'],['summary','Résumé'],['body','Texte']]},
       b:{tb:'banners',n:'title',f:[['title','Titre'],['link_url','Lien (https:// ou /)'],['image_url','Image (https://)']]}};
@@ -595,7 +659,7 @@ async function route(){
   const h=location.hash.slice(1)||'/';const [path,qs]=h.split('?');const p=new URLSearchParams(qs||'');const seg=path.split('/').filter(Boolean);
   document.querySelectorAll('#nav a').forEach(a=>a.classList.toggle('on',a.dataset.r===(seg[0]||'home')));
   setMore(false);
-  const bk=seg[0]==='applications'?(p.get('focus')?'recherche':'applications'):(['categorie','app','mali'].includes(seg[0])?'applications':(seg[0]||'home'));
+  const bk=seg[0]==='categorie'&&seg[1]==='jeux'?'jeux':seg[0]==='applications'?(p.get('focus')?'recherche':'applications'):(['categorie','app','mali'].includes(seg[0])?'applications':(seg[0]||'home'));
   document.querySelectorAll('#bn [data-r]').forEach(a=>a.classList.toggle('on',a.dataset.r===bk));
   window.scrollTo(0,0);
   try{
