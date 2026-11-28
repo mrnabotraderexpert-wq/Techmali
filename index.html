@@ -8,6 +8,7 @@
 <meta name="theme-color" content="#0B5D3B">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:image" content="https://techmali.tech/banner.jpg">
 <meta property="og:image:width" content="1344"><meta property="og:image:height" content="756">
 <meta name="twitter:card" content="summary_large_image">
@@ -108,7 +109,55 @@ footer .fl{margin-top:24px;padding-top:16px;border-top:1px solid #243a2e;font-si
 .toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--t);color:#fff;padding:12px 18px;border-radius:12px;z-index:50;max-width:90vw}
 @media(min-width:760px){nav{display:flex}#mb{display:none}.hero .wrap{grid-template-columns:1.3fr 1fr;align-items:center}.grid{grid-template-columns:repeat(4,1fr)}.cats{grid-template-columns:repeat(4,1fr)}.mali{grid-template-columns:1.4fr 1fr;align-items:center}footer .cols{grid-template-columns:repeat(4,1fr)}.filters{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}}
 @media(prefers-reduced-motion:no-preference){.phone{animation:fl 6s ease-in-out infinite}@keyframes fl{50%{transform:translateY(-8px)}}}
+.ins svg{width:18px;height:18px;flex:none}
+.installed .ins{display:none!important}
+#nins{display:none;white-space:nowrap;flex:none}
+#menu .ins{width:100%;margin-top:12px}
+#insd{margin:auto;border:0;border-radius:var(--rad);padding:20px;width:min(360px,calc(100vw - 32px));color:var(--t)}
+#insd::backdrop{background:rgba(0,0,0,.5)}
+#insd p{margin:10px 0 16px}
+@media(min-width:1060px){#nins{display:inline-flex}}
+#sub{white-space:nowrap;flex:none}
+.lg{display:none}
+@media(min-width:1200px){.lg{display:inline}}
+@media(min-width:760px) and (max-width:899px){nav{display:none}#mb{display:grid}}
+@media(max-width:359px){.bar{gap:6px}.logo{font-size:17px;gap:6px}}
 </style>
+<script>
+/* ---------- INSTALLATION (PWA) ---------- */
+(function(){
+  var promptEvt=null, root=document.documentElement;
+  function hide(){root.classList.add('installed')}
+  if(matchMedia('(display-mode: standalone)').matches||navigator.standalone===true)hide();
+  addEventListener('beforeinstallprompt',function(e){e.preventDefault();promptEvt=e;root.classList.remove('installed')});
+  addEventListener('appinstalled',function(){promptEvt=null;hide()});
+  function help(){
+    var ua=navigator.userAgent, msg;
+    if(/FBAN|FBAV|Instagram|WhatsApp|; wv\)/i.test(ua))
+      msg='Ouvrez d’abord techmali.tech dans Chrome (Android) ou Safari (iPhone) : menu ⋮ ou bouton de partage, puis « Ouvrir dans le navigateur ».';
+    else if(/iPhone|iPad|iPod/i.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1))
+      msg='Sur iPhone ou iPad : touchez le bouton Partager, puis « Sur l’écran d’accueil », puis « Ajouter ».';
+    else if(/Android/i.test(ua))
+      msg='Ouvrez le menu ⋮ du navigateur, puis choisissez « Installer l’application » ou « Ajouter à l’écran d’accueil ». Si TechMali est déjà installée, cherchez son icône sur votre téléphone.';
+    else
+      msg='Dans Chrome ou Edge, cliquez sur l’icône d’installation dans la barre d’adresse, ou ouvrez le menu du navigateur. Si votre navigateur ne le propose pas, essayez Chrome ou Edge.';
+    var d=document.getElementById('insd');
+    if(!d){
+      d=document.createElement('dialog');d.id='insd';d.setAttribute('aria-labelledby','insh');
+      d.innerHTML='<h2 id="insh">Installer TechMali</h2><p></p><form method="dialog"><button class="btn">Compris</button></form>';
+      document.body.appendChild(d);
+    }
+    d.querySelector('p').textContent=msg;
+    if(d.showModal){if(!d.open)d.showModal()}else alert(msg);
+  }
+  document.addEventListener('click',function(e){
+    if(!e.target.closest('.ins'))return;
+    if(!promptEvt)return help();
+    var p=promptEvt;promptEvt=null; /* une invite ne peut servir qu'une fois */
+    p.prompt();
+  });
+})();
+</script>
 </head>
 <body>
 <header>
@@ -122,11 +171,13 @@ footer .fl{margin-top:24px;padding-top:16px;border-top:1px solid #243a2e;font-si
       <a href="#/" data-r="home">Accueil</a><a href="#/applications" data-r="applications">Applications</a><a href="#/startups" data-r="startups">Startups</a><a href="#/innovations" data-r="innovations">Innovations</a><a href="#/developpeurs" data-r="developpeurs">Développeurs</a>
     </nav>
     <div class="sp"></div>
-    <a class="btn s" href="#/soumettre" id="sub">Soumettre une application</a>
+    <button type="button" class="btn s y ins" id="nins"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg> Installer TechMali</button>
+    <a class="btn s" href="#/soumettre" id="sub" aria-label="Soumettre une application">Soumettre<span class="lg">&nbsp;une application</span></a>
     <button class="ib" id="mb" aria-label="Menu" aria-expanded="false"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
   <div id="menu">
     <a href="#/">Accueil</a><a href="#/applications">Applications</a><a href="#/startups">Startups</a><a href="#/innovations">Innovations</a><a href="#/developpeurs">Développeurs</a><a href="#/applications?focus=1">Rechercher</a>
+    <button type="button" class="btn y ins"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg> Installer TechMali</button>
   </div>
 </header>
 <main id="app" class="wrap" style="padding:0;max-width:none"></main>
@@ -197,7 +248,7 @@ async function home(){
     ${heroBanner()}
     <div class="hb2">
       <form class="sb" id="hs" role="search"><input type="search" id="hq" placeholder="Que recherchez-vous ? Une application, un service, un outil…" aria-label="Rechercher"><button aria-label="Rechercher"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button></form>
-      <div class="ctas"><a class="btn" href="#/applications">Explorer les applications</a><a class="btn o" href="#/soumettre">Présenter mon application</a></div>
+      <div class="ctas"><a class="btn" href="#/applications">Explorer les applications</a><a class="btn o" href="#/soumettre">Présenter mon application</a><button type="button" class="btn y ins"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg> Installer TechMali</button></div>
     </div>
   </div></div>
   <div class="wrap">
