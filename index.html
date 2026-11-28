@@ -8,6 +8,9 @@
 <meta name="theme-color" content="#0B5D3B">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
+<meta property="og:image" content="https://techmali.tech/banner.jpg">
+<meta property="og:image:width" content="1344"><meta property="og:image:height" content="756">
+<meta name="twitter:card" content="summary_large_image">
 <meta property="og:title" content="TechMali – La technologie malienne, à portée de main">
 <meta property="og:description" content="Toutes les applications du Mali, au même endroit.">
 <meta property="og:type" content="website">
@@ -44,7 +47,7 @@ nav a.on,nav a:hover{background:var(--gl);color:var(--g)}
 #menu a{display:block;padding:12px 0;border-bottom:1px solid var(--b);font-weight:500}
 .flag{height:4px;background:linear-gradient(90deg,var(--g) 33%,var(--y) 33% 66%,var(--r) 66%)}
 .hero{padding:36px 0 28px;background:linear-gradient(180deg,var(--gl),var(--bg))}
-.hero .wrap{display:grid;gap:24px}
+.hero .wrap{display:grid;gap:24px}.hero .wrap.hb{grid-template-columns:1fr}.bn{display:block;width:100%;height:auto;border-radius:20px;box-shadow:0 12px 32px rgba(11,93,59,.28)}.hb2{max-width:680px;width:100%;margin:0 auto}.hb2 .ctas{justify-content:center}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .hero h1{font-size:clamp(30px,7vw,52px);font-weight:800;max-width:14ch}
 .hero p{color:var(--m);max-width:52ch;margin:12px 0 20px}
 .sb{display:flex;background:#fff;border:2px solid var(--g);border-radius:14px;overflow:hidden}
@@ -178,14 +181,13 @@ async function home(){
   const featured=APPS.filter(a=>a.is_featured).slice(0,8);
   const mali=APPS.filter(a=>a.is_made_in_mali).slice(0,4);
   app.innerHTML=`
-  <div class="hero"><div class="wrap">
-    <div>
-      <h1>Toutes les applications du Mali, au même endroit.</h1>
-      <p>Découvrez les applications, les services numériques et les innovations qui font avancer le Mali. Explorez les solutions conçues pour vous simplifier la vie.</p>
+  <div class="hero"><div class="wrap hb">
+    <h1 class="sr">Toutes les applications du Mali, au même endroit.</h1>
+    <img class="bn" src="banner.jpg" srcset="banner-800.jpg 800w, banner.jpg 1344w" sizes="(min-width:1100px) 1100px, 100vw" width="1344" height="756" alt="TechMali – Toutes les applications du Mali, au même endroit" fetchpriority="high">
+    <div class="hb2">
       <form class="sb" id="hs" role="search"><input type="search" id="hq" placeholder="Que recherchez-vous ? Une application, un service, un outil…" aria-label="Rechercher"><button aria-label="Rechercher"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button></form>
       <div class="ctas"><a class="btn" href="#/applications">Explorer les applications</a><a class="btn o" href="#/soumettre">Présenter mon application</a></div>
     </div>
-    <div class="phone" aria-hidden="true"><div>${'<i></i>'.repeat(12)}</div></div>
   </div></div>
   <div class="wrap">
   <section class="s">${sectionHead('Applications à la une','Tout voir','#/applications')}${gridOf(featured,'Aucune application à la une pour le moment.')}</section>
@@ -353,7 +355,7 @@ async function admin(){
         toast(error?error.message:'Fait. Retrouvez l’application dans l’onglet Applications.');tab('s')}}
     if(k==='a'){const {data}=await sb.from('apps').select('*').order('created_at',{ascending:false});
       box.innerHTML=`<div class="ov"><table><tr><th>Nom</th><th>Statut</th><th>Actions</th></tr>${(data||[]).map(a=>`<tr><td>${esc(a.name)}<br><small>${a.view_count} vues · ${esc(ORIG[a.origin_type]||'')} · ${esc(VER[a.verification_status]||'')}${a.is_made_in_mali?' · 🇲🇱 badge':''}${a.is_featured?' · à la une':''}</small></td><td>${esc(a.status)}</td><td><div class="row">
-      <button class="btn s o" data-a="pub" data-id="${a.id}">${a.status==='published'?'Dépublier':'Publier'}</button><button class="btn s o" data-a="feat" data-id="${a.id}">${a.is_featured?'Retirer une':'Mettre à la une'}</button><button class="btn s o" data-a="mali" data-id="${a.id}">${a.is_made_in_mali?'Retirer Made in Mali':'Vérifier Made in Mali'}</button><button class="btn s o" data-a="del" data-id="${a.id}">Supprimer</button><label class="btn s o" style="cursor:pointer">${a.logo_url?'Changer le logo':'Ajouter un logo'}<input type="file" hidden accept="image/png,image/jpeg,image/webp" data-up="logo" data-id="${a.id}"></label><button class="btn s o" data-a="link" data-id="${a.id}">${a.apk_url?'Modifier le lien APK ✓':'Lien de téléchargement'}</button></div></td></tr>`).join('')}</table></div>${(data||[]).length?'':'<div class="empty">Aucune application.</div>'}`;
+      <button class="btn s o" data-a="pub" data-id="${a.id}">${a.status==='published'?'Dépublier':'Publier'}</button><button class="btn s o" data-a="feat" data-id="${a.id}">${a.is_featured?'Retirer une':'Mettre à la une'}</button><button class="btn s o" data-a="mali" data-id="${a.id}">${a.is_made_in_mali?'Retirer Made in Mali':'Vérifier Made in Mali'}</button><button class="btn s o" data-a="del" data-id="${a.id}">Supprimer</button><label class="btn s o" style="cursor:pointer">${a.logo_url?'Changer le logo':'Ajouter un logo'}<input type="file" hidden accept="image/png,image/jpeg,image/webp" data-up="logo" data-id="${a.id}"></label><button class="btn s o" data-a="link" data-id="${a.id}">${(a.play_store_url||a.app_store_url||a.apk_url)?'Liens de téléchargement ✓':'Ajouter les liens'}</button></div></td></tr>`).join('')}</table></div>${(data||[]).length?'':'<div class="empty">Aucune application.</div>'}`;
       box.onchange=async e=>{const i=e.target.closest('input[data-up="logo"]');if(!i||!i.files[0])return;const f=i.files[0],a=data.find(x=>x.id===i.dataset.id);
         if(f.size>2097152)return toast('Image trop lourde (max 2 Mo)');
         const ext=(f.name.split('.').pop()||'png').toLowerCase().replace(/[^a-z0-9]/g,''),path='logos/'+a.slug+'-'+Date.now()+'.'+ext;
@@ -363,7 +365,9 @@ async function admin(){
         if(b.dataset.a==='pub')r=await sb.from('apps').update({status:a.status==='published'?'draft':'published'}).eq('id',a.id);
         if(b.dataset.a==='feat')r=await sb.from('apps').update({is_featured:!a.is_featured}).eq('id',a.id);
         if(b.dataset.a==='mali')r=await sb.from('apps').update(a.is_made_in_mali?{is_made_in_mali:false,mali_verified_at:null}:{is_made_in_mali:true,mali_verified_at:new Date().toISOString()}).eq('id',a.id);
-        if(b.dataset.a==='link'){let u=prompt('Lien de téléchargement direct de l’APK (https://… GitHub, Google Drive, votre site). Laisser vide pour retirer :',a.apk_url||'');if(u===null)return;u=u.trim();const g=u.match(/drive\.google\.com\/file\/d\/([\w-]+)/);if(g)u='https://drive.google.com/uc?export=download&id='+g[1];if(u&&!/^https:\/\//i.test(u))return toast('Le lien doit commencer par https://');r=await sb.from('apps').update({apk_url:u||null,apk_size:null,apk_version:null}).eq('id',a.id)}
+        if(b.dataset.a==='link'){const F=[['play_store_url','Lien Google Play'],['app_store_url','Lien App Store'],['website_url','Site web'],['apk_url','Lien APK direct (GitHub, Drive, votre site)']],upd={};
+          for(const [k,l] of F){let u=prompt(l+' (https://…)\nVide = retirer · Annuler = ne pas changer',a[k]||'');if(u===null)continue;u=u.trim();const g=u.match(/drive\.google\.com\/file\/d\/([\w-]+)/);if(k==='apk_url'&&g)u='https://drive.google.com/uc?export=download&id='+g[1];if(u&&!/^https:\/\//i.test(u))return toast(l+' : le lien doit commencer par https://');upd[k]=u||null}
+          if(!Object.keys(upd).length)return;r=await sb.from('apps').update(upd).eq('id',a.id)}
         if(b.dataset.a==='del'){if(!confirm('Supprimer définitivement « '+a.name+' » ?'))return;r=await sb.from('apps').delete().eq('id',a.id)}
         loaded=false;toast(r&&r.error?r.error.message:'Modifié');tab('a')}}
 
