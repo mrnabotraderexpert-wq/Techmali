@@ -1,1 +1,44 @@
-{"name":"TechMali","short_name":"TechMali","description":"La technologie malienne, à portée de main.","start_url":"./index.html","display":"standalone","background_color":"#F6F7F5","theme_color":"#0B5D3B","lang":"fr","icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
+{
+ "id": "/",
+ "name": "TechMali – Annuaire des applications du Mali",
+ "short_name": "TechMali",
+ "description": "Applications, startups et innovations numériques du Mali : fiches détaillées et liens de téléchargement.",
+ "lang": "fr",
+ "dir": "ltr",
+ "start_url": "./index.html",
+ "scope": "./",
+ "display": "standalone",
+ "orientation": "portrait",
+ "background_color": "#F6F7F5",
+ "theme_color": "#0B5D3B",
+ "categories": [
+  "business",
+  "finance",
+  "utilities"
+ ],
+ "icons": [
+  {
+   "src": "icon.svg",
+   "sizes": "any",
+   "type": "image/svg+xml",
+   "purpose": "any maskable"
+  }
+ ],
+ "shortcuts": [
+  {
+   "name": "Toutes les applications",
+   "short_name": "Applications",
+   "url": "./index.html#/applications"
+  },
+  {
+   "name": "Made in Mali",
+   "short_name": "Made in Mali",
+   "url": "./index.html#/mali"
+  },
+  {
+   "name": "Soumettre une application",
+   "short_name": "Soumettre",
+   "url": "./index.html#/soumettre"
+  }
+ ]
+}
