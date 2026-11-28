@@ -2,12 +2,13 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>TechMali – La technologie malienne, à portée de main</title>
 <meta name="description" content="Découvrez les applications, services numériques et innovations qui font avancer le Mali.">
 <meta name="theme-color" content="#0B5D3B">
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-48.png" type="image/png" sizes="48x48">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:image" content="https://techmali.tech/banner.jpg">
 <meta property="og:image:width" content="1344"><meta property="og:image:height" content="756">
@@ -17,7 +18,7 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--g:#0B5D3B;--g2:#094A30;--gl:#E7F2EC;--y:#F2B705;--r:#CE1126;--bg:#F6F7F5;--c:#fff;--t:#14211B;--m:#5C6B63;--b:#DDE4DF;--rad:16px}
 *{box-sizing:border-box;margin:0}
@@ -30,13 +31,13 @@ img{max-width:100%}
 .wrap{max-width:1120px;margin:0 auto;padding:0 16px}
 header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--b)}
 .bar{display:flex;align-items:center;gap:12px;height:60px}
-.logo{display:flex;align-items:center;gap:8px;font:800 20px 'Bricolage Grotesque';color:var(--g)}
-.logo svg{width:28px;height:28px}
+.logo{display:flex;align-items:center;gap:8px;font:800 20px 'Bricolage Grotesque';color:#022f89}
+.logo img{width:36px;height:36px;border-radius:10px;flex:none}
 nav{display:none;gap:4px;margin-left:16px}
 nav a{padding:8px 12px;border-radius:10px;font-weight:500;color:var(--m)}
 nav a.on,nav a:hover{background:var(--gl);color:var(--g)}
 .sp{flex:1}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:0 18px;border-radius:12px;border:1px solid var(--g);background:var(--g);color:#fff;font:600 15px inherit;cursor:pointer}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:0 18px;border-radius:12px;border:1px solid var(--g);background:var(--g);color:#fff;font:600 15px var(--f);cursor:pointer}
 .btn:hover{background:var(--g2)}
 .btn.o{background:transparent;color:var(--g)}
 .btn.o:hover{background:var(--gl)}
@@ -52,7 +53,7 @@ nav a.on,nav a:hover{background:var(--gl);color:var(--g)}
 .hero h1{font-size:clamp(30px,7vw,52px);font-weight:800;max-width:14ch}
 .hero p{color:var(--m);max-width:52ch;margin:12px 0 20px}
 .sb{display:flex;background:#fff;border:2px solid var(--g);border-radius:14px;overflow:hidden}
-.sb input{flex:1;min-width:0;border:0;padding:14px;font:16px inherit;outline:0}
+.sb input{flex:1;min-width:0;border:0;padding:14px;font:16px var(--f);outline:0}
 .sb button{border:0;background:var(--g);color:#fff;padding:0 16px;cursor:pointer}
 .ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
 .phone{justify-self:center;width:210px;aspect-ratio:9/18;background:#0e1a14;border-radius:32px;padding:10px;box-shadow:0 20px 40px rgba(11,93,59,.25)}
@@ -80,14 +81,14 @@ section.s{padding:28px 0}
 .mali{background:var(--g);color:#fff;border-radius:20px;padding:24px;display:grid;gap:12px}
 .mali p{opacity:.9}
 .tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:12px}
-.tabs button{border:1px solid var(--b);background:#fff;border-radius:99px;padding:8px 14px;font:500 14px inherit;white-space:nowrap;cursor:pointer}
+.tabs button{border:1px solid var(--b);background:#fff;border-radius:99px;padding:8px 14px;font:500 14px var(--f);white-space:nowrap;cursor:pointer}
 .tabs button.on{background:var(--g);color:#fff;border-color:var(--g)}
 .empty{background:#fff;border:1px dashed var(--b);border-radius:var(--rad);padding:28px 16px;text-align:center;color:var(--m);grid-column:1/-1}
 .filters{display:grid;gap:8px;grid-template-columns:1fr 1fr;margin:12px 0}
-.filters select,.filters label{min-height:44px;border:1px solid var(--b);border-radius:12px;background:#fff;padding:0 10px;font:15px inherit;display:flex;align-items:center;gap:8px}
+.filters select,.filters label{min-height:44px;border:1px solid var(--b);border-radius:12px;background:#fff;padding:0 10px;font:15px var(--f);display:flex;align-items:center;gap:8px}
 form.f{display:grid;gap:12px;background:#fff;border:1px solid var(--b);border-radius:var(--rad);padding:18px}
 form.f label{display:grid;gap:4px;font-weight:600;font-size:14px}
-form.f input,form.f textarea,form.f select{font:16px inherit;border:1px solid var(--b);border-radius:10px;padding:11px;min-height:44px;width:100%}
+form.f input,form.f textarea,form.f select{font:16px var(--f);border:1px solid var(--b);border-radius:10px;padding:11px;min-height:44px;width:100%}
 form.f .ck{display:flex;gap:10px;align-items:flex-start;font-weight:400}
 form.f .ck input{width:22px;min-height:22px;margin-top:2px}
 .note{padding:12px;border-radius:12px;background:var(--gl);color:var(--g2);font-size:14px}
@@ -122,6 +123,82 @@ footer .fl{margin-top:24px;padding-top:16px;border-top:1px solid #243a2e;font-si
 @media(min-width:1200px){.lg{display:inline}}
 @media(min-width:760px) and (max-width:899px){nav{display:none}#mb{display:grid}}
 @media(max-width:359px){.bar{gap:6px}.logo{font-size:17px;gap:6px}}
+
+/* ---------- PANNEAU PUB ---------- */
+.ads{position:relative;border-radius:20px;overflow:hidden;background:var(--gl);box-shadow:0 12px 32px rgba(11,93,59,.28)}
+.trk{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.trk::-webkit-scrollbar{display:none}
+.sl{flex:0 0 100%;position:relative;scroll-snap-align:start}
+.sl a{display:block}
+.ads .bn{border-radius:0;box-shadow:none;aspect-ratio:16/9;object-fit:cover;width:100%;height:auto}
+.adt{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.65);color:#fff;font-size:12px;font-weight:600;padding:3px 10px;border-radius:99px}
+.dots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:6px;pointer-events:none}
+.dots button{pointer-events:auto;width:8px;height:8px;border-radius:99px;border:0;padding:0;background:rgba(255,255,255,.65);cursor:pointer;transition:width .2s,background .2s}
+.dots button.on{width:22px;background:#fff}
+.adl{display:block;text-align:right;font-size:13px;color:var(--m);margin-top:-8px}
+.bnl{display:grid;grid-template-columns:96px 1fr;gap:12px;margin-bottom:10px;align-items:start}
+.bnl img{width:96px;height:54px;object-fit:cover;border-radius:10px;border:1px solid var(--b);background:var(--gl)}
+.bnl .row{grid-column:1/-1}
+.bnl h3{font-size:16px;word-break:break-word}
+.bnl small{color:var(--m);word-break:break-all}
+/* ---------- REFONTE MOBILE (style liste de boutique d'applis) ---------- */
+:root{--f:'Instrument Sans',system-ui,sans-serif;--fd:'Bricolage Grotesque',system-ui,sans-serif}
+body{font-family:var(--f);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+button,input,select,textarea{font-family:inherit}
+h1,h2,h3{font-family:var(--fd);font-weight:700}
+.sa{display:inline-flex;align-items:center;gap:6px}
+.sa svg{width:20px;height:20px;flex:none}
+#bn,.chips,#more{display:none}
+@media(max-width:759px){
+ body{font-size:15px;padding-bottom:calc(80px + env(safe-area-inset-bottom,0px))}
+ #mb{display:none}
+ .bar{height:56px}
+ .hero{padding:12px 0 4px}
+ .hero .wrap{gap:14px}
+ .bn{border-radius:18px;box-shadow:0 6px 18px rgba(11,93,59,.18)}
+ .hero .ctas{display:none}
+ .sb{border-width:1.5px;border-radius:999px;background:#fff}
+ .sb input{padding:13px 8px 13px 18px}
+ .sb button{padding:0 18px}
+ .chips{display:flex;gap:8px;overflow-x:auto;padding:14px 16px 2px;scrollbar-width:none}
+ .chips::-webkit-scrollbar{display:none}
+ .chips a{flex:none;display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border-radius:12px;background:#fff;border:1px solid var(--b);font-weight:600;font-size:14px;color:var(--t)}
+ .chips a:active{background:var(--gl);border-color:var(--g)}
+ section.s{padding:20px 0 4px}
+ .sh{align-items:center;margin-bottom:8px}
+ .sh h2{font-size:21px}
+ .sh a.sa{width:40px;height:40px;justify-content:center;border-radius:50%;background:var(--gl);color:var(--g)}
+ .sa .tx{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+ .grid{grid-template-columns:1fr;gap:10px}
+ .card.ap{display:grid;grid-template-columns:60px 1fr;column-gap:14px;row-gap:2px;align-items:start;background:transparent;border:0;border-radius:14px;margin:0 -8px;padding:8px}
+ .card.ap:active{background:var(--gl)}
+ .card.ap .ic{grid-row:1/4;width:60px;height:60px;border-radius:16px;font-size:24px;background:#fff;border:1px solid var(--b)}
+ .card.ap h3{font:600 16px/1.25 var(--f);letter-spacing:0;align-self:end}
+ .card.ap p{font-size:14px;line-height:1.4}
+ .card.ap .row{gap:6px;margin-top:2px}
+ .card.ap .tag{background:transparent;padding:0;font-size:13px;font-weight:500;color:var(--m)}
+ .card.ap .tag.m{background:#FFF4CC;color:#6b5000;padding:1px 8px;font-weight:600}
+ .card.ap .tag:nth-child(n+3){display:none}
+ .card.ap>.btn{display:none}
+ .cat{border-radius:16px}
+ footer{margin-top:24px}
+ .toast{bottom:calc(92px + env(safe-area-inset-bottom,0px))}
+ #bn{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid var(--b);padding:8px 4px calc(8px + env(safe-area-inset-bottom,0px))}
+ #bn a,#bn button{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;min-height:56px;padding:0;border:0;background:none;color:var(--m);font:600 12px/1.1 var(--f);cursor:pointer;-webkit-tap-highlight-color:transparent}
+ #bn .pl{width:64px;height:32px;border-radius:16px;display:grid;place-items:center;transition:background .2s}
+ #bn svg{width:24px;height:24px}
+ #bn .on{color:var(--g)}
+ #bn .on .pl{background:var(--gl)}
+ #more:not([hidden]){display:block;position:fixed;inset:0;z-index:40}
+ #more .bk{position:absolute;inset:0;background:rgba(0,0,0,.45)}
+ #more .sheet{position:absolute;left:0;right:0;bottom:0;background:#fff;border-radius:24px 24px 0 0;padding:10px 20px calc(16px + env(safe-area-inset-bottom,0px));animation:up .22s ease-out}
+ #more .grab{display:block;width:40px;height:4px;border-radius:2px;background:var(--b);margin:0 auto 6px}
+ #more .sheet a{display:flex;align-items:center;min-height:52px;font-weight:600;border-bottom:1px solid var(--b)}
+ #more .sheet .btn{width:100%;margin-top:14px}
+ @keyframes up{from{transform:translateY(24px);opacity:0}}
+}
+@media(max-width:759px){.ads{border-radius:18px;box-shadow:0 6px 18px rgba(11,93,59,.18)}.adt{top:8px;right:8px;font-size:11px;padding:2px 9px}.dots{bottom:8px}.adl{margin-top:-6px;padding:4px 0}}
+@media(prefers-reduced-motion:reduce){#more .sheet{animation:none}}
 </style>
 <script>
 /* ---------- INSTALLATION (PWA) ---------- */
@@ -164,7 +241,7 @@ footer .fl{margin-top:24px;padding-top:16px;border-top:1px solid #243a2e;font-si
   <div class="flag"></div>
   <div class="wrap bar">
     <a class="logo" href="#/" aria-label="TechMali, accueil">
-      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#0B5D3B"/><path d="M8 11h16M16 11v12M11 23h10" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="8" cy="11" r="2" fill="#F2B705"/><circle cx="24" cy="11" r="2" fill="#CE1126"/></svg>
+      <img src="logo-72.png" width="36" height="36" alt="">
       TECHMALI
     </a>
     <nav id="nav">
@@ -193,6 +270,17 @@ footer .fl{margin-top:24px;padding-top:16px;border-top:1px solid #243a2e;font-si
   </div>
 </footer>
 
+<div id="bn" role="navigation" aria-label="Navigation principale">
+  <a href="#/" data-r="home"><span class="pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span>Accueil</a>
+  <a href="#/applications" data-r="applications"><span class="pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></svg></span>Applis</a>
+  <a href="#/applications?focus=1" data-r="recherche"><span class="pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></span>Recherche</a>
+  <a href="#/startups" data-r="startups"><span class="pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span>Startups</a>
+  <button type="button" id="bm" aria-haspopup="dialog" aria-expanded="false"><span class="pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span>Plus</button>
+</div>
+<div id="more" hidden><div class="bk"></div><div class="sheet" role="dialog" aria-label="Plus d’options"><span class="grab"></span>
+  <a href="#/innovations">Innovations</a><a href="#/mali">🇲🇱 Made in Mali</a><a href="#/developpeurs">Espace développeurs</a><a href="#/soumettre">Soumettre une application</a><a href="#/a-propos">À propos</a><a href="#/contact">Contact</a>
+  <button type="button" class="btn y ins">Installer TechMali</button></div></div>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script>
 const SB_URL='https://gloljukwitdrbsvmznea.supabase.co';
@@ -212,7 +300,7 @@ async function load(){
   const [c,a,b]=await Promise.all([
     sb.from('categories').select('*').order('sort_order'),
     sb.from('apps').select('*').eq('status','published').order('created_at',{ascending:false}).limit(1000),
-    sb.from('banners').select('*').eq('is_active',true).eq('placement','home').order('sort_order').order('created_at',{ascending:false}).limit(5)
+    sb.from('banners').select('*').eq('is_active',true).eq('placement','home').order('sort_order').order('created_at',{ascending:false}).limit(8)
   ]);
   CATS=c.data||[];APPS=a.data||[];BANNERS=b.data||[];loaded=true;
 }
@@ -222,20 +310,32 @@ const catName=id=>(CATS.find(c=>c.id===id)||{}).name||'';
 const initial=n=>esc((n||'?').trim().charAt(0).toUpperCase());
 function logo(a){let src=safeUrl(a.logo_url);if(!src&&a.website_url){try{src='https://www.google.com/s2/favicons?sz=128&domain='+encodeURIComponent(new URL(a.website_url).hostname)}catch(e){}}
   return `<div class="ic">${src?`<img src="${src}" alt="" loading="lazy" data-i="${initial(a.name)}" onerror="this.parentNode.textContent=this.dataset.i">`:initial(a.name)}</div>`}
-function appCard(a){return `<a class="card" href="#/app/${esc(a.slug)}">${logo(a)}<h3>${esc(a.name)}</h3><p>${esc(a.short_description)}</p><div class="row"><span class="tag">${esc(catName(a.category_id)||'Application')}</span>${a.is_made_in_mali?'<span class="tag m">🇲🇱 Made in Mali</span>':''}${a.origin_type&&a.origin_type!=='MADE_IN_MALI'?`<span class="tag sp">${ORIG[a.origin_type]}</span>`:''}${a.verification_status==='VERIFIED'?'<span class="tag">✔ Vérifiée</span>':''}${a.is_sponsored?'<span class="tag sp">Sponsorisé</span>':''}${a.is_demo?'<span class="tag sp">Démo</span>':''}</div><span class="btn s o" style="margin-top:auto">Découvrir</span></a>`}
+function appCard(a){return `<a class="card ap" href="#/app/${esc(a.slug)}">${logo(a)}<h3>${esc(a.name)}</h3><p>${esc(a.short_description)}</p><div class="row"><span class="tag">${esc(catName(a.category_id)||'Application')}</span>${a.is_made_in_mali?'<span class="tag m">🇲🇱 Made in Mali</span>':''}${a.origin_type&&a.origin_type!=='MADE_IN_MALI'?`<span class="tag sp">${ORIG[a.origin_type]}</span>`:''}${a.verification_status==='VERIFIED'?'<span class="tag">✔ Vérifiée</span>':''}${a.is_sponsored?'<span class="tag sp">Sponsorisé</span>':''}${a.is_demo?'<span class="tag sp">Démo</span>':''}</div><span class="btn s o" style="margin-top:auto">Découvrir</span></a>`}
 const gridOf=(list,msg)=>`<div class="grid">${list.length?list.map(appCard).join(''):`<div class="empty">${msg||'Aucune application publiée pour le moment.'}</div>`}</div>`;
-const sectionHead=(t,l,h)=>`<div class="sh"><h2>${t}</h2>${l?`<a href="${h}">${l}</a>`:''}</div>`;
+const sectionHead=(t,l,h)=>`<div class="sh"><h2>${t}</h2>${l?`<a class="sa" href="${h}" aria-label="${l}"><span class="tx">${l}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>`:''}</div>`;
 
 /* ---------- ACCUEIL ---------- */
 const STATIC_BN='<img class="bn" src="banner.jpg" srcset="banner-800.jpg 800w, banner.jpg 1344w" sizes="(min-width:1100px) 1100px, 100vw" width="1344" height="756" alt="TechMali – Toutes les applications du Mali, au même endroit" fetchpriority="high">';
 const bannerLink=u=>/^(https:\/\/|\/(?!\/))/i.test(u||'')?esc(u):'';
 function heroBanner(){
-  const b=BANNERS.find(x=>safeUrl(x.image_url));
-  if(!b)return STATIC_BN;
-  const img=`<img class="bn" src="${safeUrl(b.image_url)}" alt="${esc(b.title)}" fetchpriority="high" onerror="this.onerror=null;this.src='banner.jpg'">`;
-  const l=bannerLink(b.link_url);
-  const tag=b.is_sponsored?'<span style="position:absolute;top:10px;right:10px;background:rgba(0,0,0,.65);color:#fff;font-size:12px;padding:3px 9px;border-radius:10px">Sponsorisé</span>':'';
-  return `<div style="position:relative">${l?`<a href="${l}"${l.startsWith('https')?' target="_blank"':''} rel="${b.is_sponsored?'sponsored ':''}noopener">${img}</a>`:img}${tag}</div>`;
+  const L=BANNERS.filter(x=>safeUrl(x.image_url));
+  if(!L.length)return STATIC_BN;
+  const slide=(b,i)=>{
+    const img=`<img class="bn" src="${safeUrl(b.image_url)}" alt="${esc(b.title)}" ${i?'loading="lazy"':'fetchpriority="high"'} onerror="this.onerror=null;this.src='banner.jpg'">`;
+    const l=bannerLink(b.link_url);
+    return `<div class="sl">${l?`<a href="${l}"${l.startsWith('https')?' target="_blank"':''} rel="${b.is_sponsored?'sponsored ':''}noopener">${img}</a>`:img}${b.is_sponsored?'<span class="adt">Sponsorisé</span>':''}</div>`};
+  return `<div class="ads" role="region" aria-roledescription="carrousel" aria-label="À la une"><div class="trk" id="trk">${L.map(slide).join('')}</div>${L.length>1?`<div class="dots" id="dots">${L.map((_,i)=>`<button type="button" aria-label="Annonce ${i+1}"${i?'':' class="on"'}></button>`).join('')}</div>`:''}</div><a class="adl" href="#/contact">Annoncer ici</a>`;
+}
+function initAds(){
+  const t=$('#trk');if(!t||t.children.length<2)return;
+  const n=t.children.length,ds=[...$('#dots').children],rm=matchMedia('(prefers-reduced-motion:reduce)').matches;let i=0,hold=false;
+  const go=k=>t.scrollTo({left:t.clientWidth*k,behavior:rm?'auto':'smooth'});
+  t.addEventListener('scroll',()=>{i=Math.round(t.scrollLeft/t.clientWidth);ds.forEach((d,j)=>d.classList.toggle('on',j===i))},{passive:true});
+  ds.forEach((d,j)=>d.onclick=()=>go(j));
+  ['pointerdown','mouseenter','focusin'].forEach(e=>t.addEventListener(e,()=>hold=true));
+  ['pointerup','pointercancel','mouseleave','focusout'].forEach(e=>t.addEventListener(e,()=>hold=false));
+  clearInterval(window.__ads);if(rm)return;
+  window.__ads=setInterval(()=>{if(!$('#trk'))return clearInterval(window.__ads);if(!hold&&!document.hidden)go((i+1)%n)},5000);
 }
 async function home(){
   await load();
@@ -251,12 +351,14 @@ async function home(){
       <div class="ctas"><a class="btn" href="#/applications">Explorer les applications</a><a class="btn o" href="#/soumettre">Présenter mon application</a><button type="button" class="btn y ins"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg> Installer TechMali</button></div>
     </div>
   </div></div>
+  <div class="chips"><a href="#/applications">Toutes les applis</a><a href="#/mali">🇲🇱 Made in Mali</a><a href="#/startups">Startups</a><a href="#/innovations">Innovations</a><a href="#/soumettre">Soumettre</a></div>
   <div class="wrap">
   <section class="s">${sectionHead('Applications à la une','Tout voir','#/applications')}${gridOf(featured,'Aucune application à la une pour le moment.')}</section>
   <section class="s">${sectionHead('Catégories')}<div class="cats">${CATS.map(c=>{const n=APPS.filter(a=>a.category_id===c.id).length;return `<a class="cat" href="#/categorie/${esc(c.slug)}"><span class="ic">${esc(c.name.charAt(0))}</span>${esc(c.name)}<small>${n} application${n>1?'s':''}</small></a>`}).join('')}</div></section>
   <section class="s"><div class="mali"><div><h2>🇲🇱 Made in Mali</h2><p>Les applications et services conçus au Mali ou par des développeurs maliens. Le badge n’est attribué qu’après vérification par l’équipe TechMali.</p></div><div><a class="btn y" href="#/mali">Découvrir ${mali.length?'les applications maliennes':'la rubrique'}</a></div></div></section>
   <section class="s">${sectionHead('Classements')}<div class="tabs" id="tt"><button class="on" data-k="views">Plus consultées</button><button data-k="new">Nouveautés</button><button data-k="rec">Recommandées</button></div><div id="tl"></div><p class="note" style="margin-top:12px">Classements calculés à partir des données réelles du site.</p></section>
   </div>`;
+  initAds();
   $('#hs').onsubmit=e=>{e.preventDefault();location.hash='#/applications?q='+encodeURIComponent($('#hq').value)};
   const draw=k=>{let l=[...APPS];if(k==='views')l.sort((a,b)=>b.view_count-a.view_count);if(k==='new')l.sort((a,b)=>new Date(b.created_at)-new Date(a.created_at));if(k==='rec')l=l.filter(a=>a.is_recommended);$('#tl').innerHTML=gridOf(l.slice(0,8))};
   draw('views');
@@ -433,6 +535,40 @@ async function admin(){
         if(b.dataset.a==='del'){if(!confirm('Supprimer définitivement « '+a.name+' » ?'))return;r=await sb.from('apps').delete().eq('id',a.id)}
         loaded=false;toast(r&&r.error?r.error.message:'Modifié');tab('a')}}
 
+    if(k==='b'){const {data}=await sb.from('banners').select('*').order('sort_order').order('created_at',{ascending:false});let L=data||[];
+      const upImg=async f=>{if(f.size>2097152)throw new Error('Image trop lourde (2 Mo maximum).');const ext=(f.name.split('.').pop()||'jpg').toLowerCase().replace(/[^a-z0-9]/g,'');const path='banners/'+Date.now()+'-'+Math.random().toString(36).slice(2,8)+'.'+ext;const r=await sb.storage.from('app-media').upload(path,f,{contentType:f.type});if(r.error)throw r.error;return sb.storage.from('app-media').getPublicUrl(path).data.publicUrl};
+      const okLink=u=>!u||/^https:\/\//i.test(u)||/^\/(?!\/)/.test(u);
+      box.innerHTML=`<form class="f" id="bf" style="margin-bottom:14px"><p class="note">Format conseillé : 1344 × 756 px (16:9), PNG, JPG ou WebP, 2 Mo maximum. Les bannières actives défilent en haut de l’accueil, dans l’ordre de la liste.</p>
+        <label>Titre (description de l’image) *<input name="title" required maxlength="120"></label>
+        <label>Image depuis votre appareil<input name="file" type="file" accept="image/png,image/jpeg,image/webp"></label>
+        <label>Ou lien d’une image (https://)<input name="image_url" type="url" placeholder="https://"></label>
+        <label>Lien au clic (https:// ou /applications)<input name="link_url" placeholder="https://"></label>
+        <label class="ck"><input type="checkbox" name="is_sponsored"> Publicité payante : afficher « Sponsorisé »</label>
+        <button class="btn" id="bsv">Ajouter et activer</button><div id="bmsg"></div></form>
+        ${L.map((r,i)=>`<div class="card bnl"><img src="${safeUrl(r.image_url)}" alt=""><div><h3>${esc(r.title)}</h3><small>${r.is_active?'Active':'Désactivée'}${r.is_sponsored?' · Sponsorisé':''}<br>${esc(r.link_url||'Pas de lien')}</small></div><div class="row">
+        <button class="btn s o" data-a="act" data-id="${r.id}">${r.is_active?'Désactiver':'Activer'}</button><button class="btn s o" data-a="spo" data-id="${r.id}">${r.is_sponsored?'Retirer Sponsorisé':'Marquer Sponsorisé'}</button>
+        ${i?`<button class="btn s o" data-a="up" data-id="${r.id}" aria-label="Monter">↑</button>`:''}${i<L.length-1?`<button class="btn s o" data-a="dn" data-id="${r.id}" aria-label="Descendre">↓</button>`:''}
+        <button class="btn s o" data-a="lnk" data-id="${r.id}">Modifier le lien</button><label class="btn s o" style="cursor:pointer">Changer l’image<input type="file" hidden accept="image/png,image/jpeg,image/webp" data-id="${r.id}"></label><button class="btn s o" data-a="del" data-id="${r.id}">Supprimer</button></div></div>`).join('')||'<div class="empty">Aucune bannière. La bannière par défaut du site s’affiche.</div>'}`;
+      const done=m=>{loaded=false;toast(m);tab('b')};
+      $('#bf').onsubmit=async e=>{e.preventDefault();const f=e.target,msg=$('#bmsg');msg.innerHTML='';
+        let img=f.image_url.value.trim(),lnk=f.link_url.value.trim();
+        if(!f.file.files[0]&&!img){msg.innerHTML='<p class="note err">Ajoutez une image ou un lien d’image.</p>';return}
+        if(!okLink(lnk)||(img&&!/^https:\/\//i.test(img))){msg.innerHTML='<p class="note err">Les liens doivent commencer par https:// (ou / pour une page du site).</p>';return}
+        $('#bsv').disabled=true;
+        try{if(f.file.files[0])img=await upImg(f.file.files[0]);
+          const {error}=await sb.from('banners').insert({title:f.title.value.trim(),image_url:img,link_url:lnk||null,is_sponsored:f.is_sponsored.checked,is_active:true,placement:'home',sort_order:L.length});
+          if(error)throw error;done('Bannière ajoutée')}
+        catch(x){$('#bsv').disabled=false;msg.innerHTML=`<p class="note err">${esc(x.message||'Échec de l’envoi.')}</p>`}};
+      box.onchange=async e=>{const i=e.target.closest('input[type=file][data-id]');if(!i||!i.files[0])return;
+        try{const {error}=await sb.from('banners').update({image_url:await upImg(i.files[0])}).eq('id',i.dataset.id);if(error)throw error;done('Image mise à jour')}catch(x){toast(x.message||'Échec')}};
+      box.onclick=async e=>{const b=e.target.closest('button[data-a]');if(!b)return;const r=L.find(x=>x.id===b.dataset.id),i=L.indexOf(r),a=b.dataset.a;let q;
+        if(a==='act')q=await sb.from('banners').update({is_active:!r.is_active}).eq('id',r.id);
+        if(a==='spo')q=await sb.from('banners').update({is_sponsored:!r.is_sponsored}).eq('id',r.id);
+        if(a==='up'||a==='dn'){const j=a==='up'?i-1:i+1;[L[i],L[j]]=[L[j],L[i]];const rs=await Promise.all(L.map((x,n)=>sb.from('banners').update({sort_order:n}).eq('id',x.id)));q=rs.find(x=>x.error)}
+        if(a==='lnk'){const u=prompt('Lien au clic (https:// ou /page)\nVide = aucun lien',r.link_url||'');if(u===null)return;if(!okLink(u.trim()))return toast('Le lien doit commencer par https:// ou /');q=await sb.from('banners').update({link_url:u.trim()||null}).eq('id',r.id)}
+        if(a==='del'){if(!confirm('Supprimer cette bannière ?'))return;q=await sb.from('banners').delete().eq('id',r.id)}
+        done(q&&q.error?q.error.message:'Modifié')};
+      return}
     const CFG={t:{tb:'startups',n:'name',f:[['name','Nom'],['domain','Domaine'],['founder_name','Fondateur (si public)'],['website_url','Site web (https://)'],['description','Présentation']]},
       i:{tb:'innovations',n:'title',f:[['title','Titre'],['summary','Résumé'],['body','Texte']]},
       b:{tb:'banners',n:'title',f:[['title','Titre'],['link_url','Lien (https:// ou /)'],['image_url','Image (https://)']]}};
@@ -458,6 +594,9 @@ async function route(){
   $('#menu').classList.remove('open');$('#mb').setAttribute('aria-expanded','false');
   const h=location.hash.slice(1)||'/';const [path,qs]=h.split('?');const p=new URLSearchParams(qs||'');const seg=path.split('/').filter(Boolean);
   document.querySelectorAll('#nav a').forEach(a=>a.classList.toggle('on',a.dataset.r===(seg[0]||'home')));
+  setMore(false);
+  const bk=seg[0]==='applications'?(p.get('focus')?'recherche':'applications'):(['categorie','app','mali'].includes(seg[0])?'applications':(seg[0]||'home'));
+  document.querySelectorAll('#bn [data-r]').forEach(a=>a.classList.toggle('on',a.dataset.r===bk));
   window.scrollTo(0,0);
   try{
     if(!seg.length)return await home();
@@ -475,6 +614,10 @@ async function route(){
   }catch(e){app.innerHTML='<div class="wrap"><p class="note err" style="margin-top:24px">Impossible de charger les données. Vérifiez votre connexion et réessayez.</p></div>'}
 }
 $('#mb').onclick=()=>{const o=$('#menu').classList.toggle('open');$('#mb').setAttribute('aria-expanded',o)};
+function setMore(o){const m=$('#more');m.hidden=!o;$('#bm').setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''}
+$('#bm').onclick=()=>setMore($('#more').hidden);
+$('#more').onclick=e=>{if(e.target.closest('.bk,a,.ins'))setMore(false)};
+addEventListener('keydown',e=>{if(e.key==='Escape')setMore(false)});
 addEventListener('hashchange',route);route();
 if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 </script>
